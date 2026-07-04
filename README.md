@@ -4,17 +4,17 @@ This repository contains a lightweight Python simulation for visualizing collect
 
 The code models an array of sensors with local signal amplitudes \(B_i\) and phases \(\phi_i\). For a collective GHZ-like sensing picture, the local AC signals are compressed into an effective complex phasor sum,
 
-\[
+$$
 B_{\rm eff}=\left|\sum_i B_i e^{i\phi_i}\right|.
-\]
+$$
 
 This effective coupling controls the distinguishability between the no-signal and signal-evolved sensor states through the trace distance,
 
-\[
+$$
 D(T)=\left|\sin\frac{\Theta(T)}{2}\right|,
 \qquad
 \Theta(T)\sim B_{\rm eff}T.
-\]
+$$
 
 The simulation compares three representative cases:
 
@@ -26,10 +26,10 @@ The goal is to illustrate how spatial phase disorder suppresses coherent collect
 
 The repository also includes heuristic comparisons of conventional frequency scanning and quantum-search-sensing-inspired scaling:
 
-\[
+$$
 \tau_{\rm conv}\sim \frac{\Delta\omega}{B_{\rm eff}^2},
 \qquad
 \tau_{\rm QSS}\sim \frac{\sqrt{\Delta\omega}}{B_{\rm eff}^{3/2}}.
-\]
+$$
 
 These scalings are intended as a toy-level baseline, not a full implementation of the quantum search sensing oracle.
