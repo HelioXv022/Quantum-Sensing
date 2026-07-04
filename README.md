@@ -18,11 +18,11 @@ $$
 
 The simulation compares three representative cases:
 
-1. Homogeneous signal: same \(B_i=B\), same \(\phi_i=\phi\)
-2. Amplitude disorder: random \(B_i\), same \(\phi_i=\phi\)
-3. Phase disorder: same \(B_i=B\), random \(\phi_i\)
+1. Homogeneous signal: same $\(B_i=B\)$, same $\(\phi_i=\phi\)$
+2. Amplitude disorder: random $\(B_i\)$, same $\(\phi_i=\phi\)$
+3. Phase disorder: same $\(B_i=B\)$, random $\(\phi_i\)$
 
-The goal is to illustrate how spatial phase disorder suppresses coherent collective enhancement. In the ideal homogeneous case, the effective signal scales as \(B_{\rm eff}\sim NB\), while for random phases it typically scales like a random walk, \(B_{\rm eff}\sim \sqrt{N}B\). This directly increases the sensing time required to reach a fixed trace-distance detection threshold.
+The goal is to illustrate how spatial phase disorder suppresses coherent collective enhancement. In the ideal homogeneous case, the effective signal scales as $\(B_{\rm eff}\sim NB\)$, while for random phases it typically scales like a random walk, $\(B_{\rm eff}\sim \sqrt{N}B\)$. This directly increases the sensing time required to reach a fixed trace-distance detection threshold.
 
 The repository also includes heuristic comparisons of conventional frequency scanning and quantum-search-sensing-inspired scaling:
 
