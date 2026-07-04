@@ -33,3 +33,11 @@ $$
 $$
 
 These scalings are intended as a toy-level baseline, not a full implementation of the quantum search sensing oracle.
+
+## References
+
+This project is inspired by the quantum search sensing framework introduced in:
+
+- Richard R. Allen, Francisco Machado, Isaac L. Chuang, Hsin-Yuan Huang, and Soonwon Choi,  
+  *Quantum Computing Enhanced Sensing*, arXiv:2501.07625 [quant-ph], 2025.  
+  DOI: https://doi.org/10.48550/arXiv.2501.07625
