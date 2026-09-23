@@ -58,3 +58,21 @@ def test_homogeneous_case_is_fully_coherent():
     homogeneous = generate_cases(16, np.random.default_rng(0))[0]
     row = analyze_case(homogeneous, d_target=0.8)
     assert row["coherence_fraction"] == pytest.approx(1.0)
+
+
+def test_random_phase_mean_matches_random_walk():
+    from qsensing.model import ensemble_effective_signal
+
+    n = 400
+    b_eff = ensemble_effective_signal(n, 4000, np.random.default_rng(1), random_phases=True)
+    assert b_eff.mean() == pytest.approx(np.sqrt(np.pi * n) / 2, rel=0.03)
+
+
+def test_random_phase_scaling_exponent_is_one_half():
+    from qsensing.scaling import run
+
+    sizes = 2 ** np.arange(3, 10)
+    result = run(sizes, n_trials=1000, seed=3)
+    slope = np.polyfit(np.log(sizes), np.log(result["phase_mean"]), 1)[0]
+    assert slope == pytest.approx(0.5, abs=0.05)
+    np.testing.assert_allclose(result["amplitude_mean"], sizes, rtol=0.05)

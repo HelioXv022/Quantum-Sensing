@@ -107,3 +107,22 @@ def analyze_case(case: SensorCase, d_target: float, b0: float = 1.0) -> dict:
         "tau_conv": conventional_time(b_eff),
         "tau_qss": qss_time(b_eff),
     }
+
+
+def ensemble_effective_signal(
+    n_sensors: int,
+    n_trials: int,
+    rng: np.random.Generator,
+    b0: float = 1.0,
+    amplitude_std: float = 0.0,
+    random_phases: bool = False,
+) -> np.ndarray:
+    """B_eff for n_trials independent arrays; returns an array of length n_trials.
+
+    With uniformly random phases and equal amplitudes, B_eff is a 2D random walk
+    of n_sensors unit steps, so its mean approaches b0 * sqrt(pi * n_sensors) / 2.
+    """
+    shape = (n_trials, n_sensors)
+    amplitudes = b0 * (1.0 + amplitude_std * rng.normal(size=shape))
+    phases = rng.uniform(-np.pi, np.pi, size=shape) if random_phases else np.zeros(shape)
+    return np.abs(np.sum(amplitudes * np.exp(1j * phases), axis=1))
