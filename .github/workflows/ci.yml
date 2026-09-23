@@ -24,3 +24,17 @@ jobs:
         run: |
           python -m qsensing --out /tmp/figures
           python -m qsensing.scaling --trials 200 --out /tmp/figures
+
+  fisher:
+    name: Fisher information (squint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e ".[test,squint]"
+      - run: pytest -q tests/test_fisher.py
+      - name: Run the disorder study
+        run: python -m qsensing.disorder --max-n 8 --draws 500 --out /tmp/figures
