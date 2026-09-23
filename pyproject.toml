@@ -14,6 +14,8 @@ dependencies = ["numpy>=1.24", "matplotlib>=3.7"]
 
 [project.optional-dependencies]
 test = ["pytest>=7", "ruff>=0.4"]
+# Fisher-information study (qsensing.fisher, qsensing.disorder); squint needs Python 3.11+
+squint = ["squint @ git+https://github.com/benjimaclellan/squint@39a02a419ede4f70f353c13696a39c25a19e89d4"]
 
 [tool.setuptools]
 packages = ["qsensing"]
